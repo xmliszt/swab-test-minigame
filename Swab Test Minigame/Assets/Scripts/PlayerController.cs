@@ -11,8 +11,10 @@ public class PlayerController : MonoBehaviour
     public GameObject swabStick;
 
     private Animator anim;
+    private int blood = 100;
     private bool picked = false;
     private bool onGround = true;
+    private bool isCrouching = false;
     private bool enteredZone = false;
     private int direction;
     private bool buttonPressed = false; // Custom debounce for controllers
@@ -30,6 +32,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (isCrouching)
+        {
+            movement.x = Mathf.Clamp(movement.x, -0.5f, 0.5f);
+            movement.y = Mathf.Clamp(movement.y, -0.5f, 0.5f);
+        }
         transform.Translate(new Vector2(movement.x, movement.y) * moveSpeed * Time.deltaTime, Space.World);
         if (movement.x > 0)
         {
@@ -60,6 +67,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnCrouch(CallbackContext context)
+    {
+        if (context.performed && !isCrouching)
+        {
+            isCrouching = true;
+            anim.SetBool("Crouch_b", true);
+        }
+        else if (context.canceled && isCrouching)
+        {
+            isCrouching = false;
+            anim.SetBool("Crouch_b", false);
+        }
+    }
+
     IEnumerator SetOnGround()
     {
         yield return new WaitForSeconds(1);
@@ -72,7 +93,6 @@ public class PlayerController : MonoBehaviour
         {
             buttonPressed = true;
             StartCoroutine(ResetButton());
-            Debug.Log("Use performed!");
             if (!picked && enteredZone)
             {
                 // Pick Up;
@@ -82,7 +102,7 @@ public class PlayerController : MonoBehaviour
             else if (picked)
             {
                 // Use;
-                GameObject stick = Instantiate(swabStick, transform.position, Quaternion.Euler(0, 0, -90 * direction));
+                GameObject stick = Instantiate(swabStick, transform.position + new Vector3(1 * direction, 0, 0), Quaternion.Euler(0, 0, -90 * direction));
                 stick.GetComponent<StickMovement>().Shoot(direction);
                 itemBubble.SetActive(false);
                 picked = false;
@@ -100,8 +120,21 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Collection_Area"))
         {
-            Debug.Log("Enter zone!");
             enteredZone = true;
+        }
+        if (collision.CompareTag("Stick"))
+        {
+            // Decrease blood
+            blood -= 10;
+            Debug.Log(string.Format("Player {0} gets hit! Blood: {1}", GetComponent<PlayerInput>().playerIndex, blood));
+            anim.SetTrigger("Hit_trig");
+            if (blood <= 0)
+            {
+                anim.SetBool("Dead_b", true);
+                GetComponent<Collider2D>().enabled = false;
+                GetComponentInChildren<Collider2D>().enabled = false;
+                StartCoroutine(Fade());
+            }
         }
     }
 
@@ -109,8 +142,23 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("Collection_Area"))
         {
-            Debug.Log("Exit zone!");
             enteredZone = false;
         }
+    }
+
+    IEnumerator Fade()
+    {
+        yield return new WaitForSeconds(2);
+        SpriteRenderer renderer = GetComponentInChildren<SpriteRenderer>();
+        while (renderer.color.a > 0)
+        {
+            yield return new WaitForSeconds(0.1f);
+            float a = renderer.color.a - 0.1f;
+            float r = renderer.color.r;
+            float g = renderer.color.g;
+            float b = renderer.color.b;
+            renderer.color = new Color(r, g, b, a);
+        }
+        Destroy(gameObject);
     }
 }
