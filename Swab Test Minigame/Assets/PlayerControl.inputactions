@@ -56,7 +56,7 @@
                 {
                     "name": "WASD",
                     "id": "12298f73-7394-4279-95fe-acc4afc8d493",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -111,7 +111,18 @@
                 {
                     "name": "Arrows",
                     "id": "2edea664-4e7b-4c6d-850a-d58ad88847c7",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Arrows",
+                    "id": "7d1261aa-196f-4205-b399-23a4d2bfd286",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -121,44 +132,44 @@
                 },
                 {
                     "name": "up",
-                    "id": "5313d2b8-7053-45a8-8ff3-a75120738cf6",
+                    "id": "0e63407d-fac0-4a0d-8db2-66b2e5fc90f8",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Arrows",
+                    "groups": "WASD",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "down",
-                    "id": "7d80c518-cfe1-41de-a9e0-a6fcb6ef5211",
+                    "id": "ef05e1ec-be29-49fd-86fa-9a32cb5b8d94",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Arrows",
+                    "groups": "WASD",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "left",
-                    "id": "445c24bd-fc46-4f35-b8bd-e6acbd76da81",
+                    "id": "aa640e02-75e9-4268-80ad-246228ef9a4c",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Arrows",
+                    "groups": "WASD",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "right",
-                    "id": "dddd30c6-38a5-4bea-8105-37be65247e1e",
+                    "id": "29514931-9e05-4b38-a3ed-a3c4fe0f8be6",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Arrows",
+                    "groups": "WASD",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -198,17 +209,6 @@
                 },
                 {
                     "name": "",
-                    "id": "938f2311-e76e-430b-879c-4d67227c0e50",
-                    "path": "<Keyboard>/rightShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Arrows",
-                    "action": "Use",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "347a9984-630f-4d12-8415-c5543ef02f07",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
@@ -232,21 +232,10 @@
                 {
                     "name": "",
                     "id": "1bc3383c-77e3-4de5-a106-ae92a05f85f3",
-                    "path": "<Keyboard>/leftCtrl",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "WASD",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c850ec28-56c7-498c-bf24-f62cbd40fb67",
-                    "path": "<Keyboard>/rightCtrl",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Arrows",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -262,17 +251,6 @@
                 {
                     "devicePath": "<Keyboard>",
                     "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Arrows",
-            "bindingGroup": "Arrows",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": true,
                     "isOR": false
                 }
             ]

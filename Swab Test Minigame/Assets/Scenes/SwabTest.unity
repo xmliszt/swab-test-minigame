@@ -513,6 +513,63 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &292737773
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292737774}
+  - component: {fileID: 292737775}
+  m_Layer: 0
+  m_Name: Chair (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &292737774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292737773}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 328030291}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &292737775
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292737773}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 7.64529, y: -3.5061662}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.80142117, y: 1.4474931}
+  m_EdgeRadius: 0
 --- !u!1 &328030290
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,9 +603,69 @@ Transform:
   - {fileID: 1811135287}
   - {fileID: 1015530527}
   - {fileID: 1998015555}
+  - {fileID: 363280124}
+  - {fileID: 328491518}
+  - {fileID: 292737774}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &328491517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328491518}
+  - component: {fileID: 328491519}
+  m_Layer: 0
+  m_Name: Chair (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328491518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328491517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 328030291}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &328491519
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328491517}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 7.64529, y: -1.5006161}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.80142117, y: 1.4474936}
+  m_EdgeRadius: 0
 --- !u!1 &336030360
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +745,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &363280123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363280124}
+  - component: {fileID: 363280125}
+  m_Layer: 0
+  m_Name: Chair (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363280124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363280123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 328030291}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &363280125
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363280123}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 7.64529, y: 0.5614284}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.80142117, y: 1.4474936}
+  m_EdgeRadius: 0
 --- !u!1 &423922525
 GameObject:
   m_ObjectHideFlags: 0
@@ -6297,7 +6471,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.64529, y: 1.310621}
+  m_Offset: {x: 7.64529, y: 2.4822369}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6308,7 +6482,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.80142117, y: 3.621242}
+  m_Size: {x: 0.80142117, y: 1.2780102}
   m_EdgeRadius: 0
 --- !u!1 &2106480428
 GameObject:
@@ -6611,7 +6785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
       propertyPath: m_JoinBehavior
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
       propertyPath: m_NotificationBehavior
@@ -6631,18 +6805,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 47439c70-fc17-421c-8328-39673f4d400d
+      value: 4143cb48-b41e-47dc-b693-2c31b41f5d69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 4aa8d46e-1635-499b-af99-5140560d7a41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Id
+      value: 37ffb91a-a0fd-4fdd-9527-f985222616ab
       objectReference: {fileID: 0}
     - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Gamepad>/buttonSouth
+      value: <Gamepad>/start
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Keyboard>/leftShift
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Path
+      value: <Keyboard>/rightShift
       objectReference: {fileID: 0}
     - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[0].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 5843261193919478221, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[2].m_Action
       value: Join
       objectReference: {fileID: 0}
     - target: {fileID: 5843261193919478223, guid: c06066566119df94ab3f1207aa3736e1, type: 3}
