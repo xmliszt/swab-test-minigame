@@ -431,4 +431,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemBubble: {fileID: 829563911}
+  swabStick: {fileID: 8044714146845143164, guid: 699b30698c3093c4cbb50da6c739b576, type: 3}
   moveSpeed: 3

@@ -8,11 +8,13 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerController : MonoBehaviour
 {
     public GameObject itemBubble;
+    public GameObject swabStick;
 
     private Animator anim;
     private bool picked = false;
     private bool onGround = true;
     private bool enteredZone = false;
+    private int direction;
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -30,10 +32,12 @@ public class PlayerController : MonoBehaviour
         transform.Translate(new Vector2(movement.x, movement.y) * moveSpeed * Time.deltaTime, Space.World);
         if (movement.x > 0)
         {
+            direction = 1;
             transform.localScale = new Vector3(10, 10, 10);
         }
         if (movement.x < 0)
         {
+            direction = -1;
             transform.localScale = new Vector3(-10, 10, 10);
         }
 
@@ -63,7 +67,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnUse(CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             Debug.Log("Use performed!");
             if (!picked && enteredZone)
@@ -71,9 +75,12 @@ public class PlayerController : MonoBehaviour
                 // Pick Up;
                 itemBubble.SetActive(true);
                 picked = true;
-            } else
+            }
+            else if (picked)
             {
                 // Use;
+                GameObject stick = Instantiate(swabStick, transform.position, Quaternion.Euler(0, 0, -90 * direction));
+                stick.GetComponent<StickMovement>().Shoot(direction);
                 itemBubble.SetActive(false);
                 picked = false;
             }
