@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool onGround = true;
     private bool enteredZone = false;
     private int direction;
+    private bool buttonPressed = false; // Custom debounce for controllers
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -67,8 +68,10 @@ public class PlayerController : MonoBehaviour
 
     public void OnUse(CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !buttonPressed)
         {
+            buttonPressed = true;
+            StartCoroutine(ResetButton());
             Debug.Log("Use performed!");
             if (!picked && enteredZone)
             {
@@ -85,6 +88,12 @@ public class PlayerController : MonoBehaviour
                 picked = false;
             }
         }
+    }
+
+    IEnumerator ResetButton()
+    {
+        yield return new WaitForSeconds(0.2f);
+        buttonPressed = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
