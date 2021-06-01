@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     private GameObject item; // item to carry
     private Animator anim;
-    private bool onGround = true;
+    private bool onGround = false;
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
+        StartCoroutine(SetOnGround());
     }
 
     private void Update()
@@ -39,7 +40,6 @@ public class PlayerController : MonoBehaviour
     public void OnMove(CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
-        Debug.Log(movement);
     }
 
     public void OnJump(CallbackContext context)

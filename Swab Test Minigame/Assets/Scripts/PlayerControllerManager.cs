@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControllerManager : MonoBehaviour
 {
-    private List<PlayerConfiguration> playerConfigurations;
+    public static PlayerControllerManager Instance { get; private set; }
+
 
     [SerializeField]
     private int MaxPlayer = 4;
 
-    public static PlayerControllerManager Instance { get; private set; }
+    private List<PlayerConfiguration> playerConfigurations;
+
     private void Awake()
     {
         if (Instance == null)
@@ -44,7 +46,6 @@ public class PlayerControllerManager : MonoBehaviour
         Debug.Log("Player Joined: " + playerInput.playerIndex);
         if (!playerConfigurations.Any(player => player.PlayerIndex == playerInput.playerIndex))
         {
-            //playerInput.transform.SetParent(transform);
             playerConfigurations.Add(new PlayerConfiguration(playerInput));
         }
     }
