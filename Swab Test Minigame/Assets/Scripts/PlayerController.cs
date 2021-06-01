@@ -7,9 +7,12 @@ using static UnityEngine.InputSystem.InputAction;
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerController : MonoBehaviour
 {
-    private GameObject item; // item to carry
+    public GameObject itemBubble;
+
     private Animator anim;
-    private bool onGround = false;
+    private bool picked = false;
+    private bool onGround = true;
+    private bool enteredZone = false;
 
     [SerializeField]
     private float moveSpeed = 5.0f;
@@ -19,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
-        StartCoroutine(SetOnGround());
+        onGround = true;
     }
 
     private void Update()
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(CallbackContext context)
     {
-        if (onGround && anim)
+        if (context.performed && onGround && anim)
         {
             anim.SetTrigger("Jump_trig");
             onGround = false;
@@ -52,20 +55,46 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnUse(CallbackContext context)
-    {
-        if (item == null)
-        {
-            Debug.Log("No item to use!");
-        } else
-        {
-            Debug.Log("Use item!");
-        }
-    }
-
     IEnumerator SetOnGround()
     {
         yield return new WaitForSeconds(1);
         onGround = true;
+    }
+
+    public void OnUse(CallbackContext context)
+    {
+        if (context.started)
+        {
+            Debug.Log("Use performed!");
+            if (!picked && enteredZone)
+            {
+                // Pick Up;
+                itemBubble.SetActive(true);
+                picked = true;
+            } else
+            {
+                // Use;
+                itemBubble.SetActive(false);
+                picked = false;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Collection_Area"))
+        {
+            Debug.Log("Enter zone!");
+            enteredZone = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Collection_Area"))
+        {
+            Debug.Log("Exit zone!");
+            enteredZone = false;
+        }
     }
 }
