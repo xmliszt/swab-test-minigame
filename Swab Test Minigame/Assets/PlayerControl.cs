@@ -131,17 +131,6 @@ public class @PlayerControl : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Arrows"",
-                    ""id"": ""2edea664-4e7b-4c6d-850a-d58ad88847c7"",
-                    ""path"": ""2DVector(mode=2)"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Arrows"",
                     ""id"": ""7d1261aa-196f-4205-b399-23a4d2bfd286"",
                     ""path"": ""2DVector(mode=1)"",
                     ""interactions"": """",

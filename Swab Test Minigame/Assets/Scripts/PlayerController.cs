@@ -9,9 +9,10 @@ public class PlayerController : MonoBehaviour
 {
     public GameObject itemBubble;
     public GameObject swabStick;
+    public GameObject healthbar;
 
+    private HealthControl health;
     private Animator anim;
-    private int blood = 100;
     private bool picked = false;
     private bool onGround = true;
     private bool isCrouching = false;
@@ -26,6 +27,10 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        healthbar.SetActive(false);
+        health = healthbar.GetComponentInChildren<HealthControl>();
+        health.SetMaxHealth(100);
+        health.SetHealth(100);
         anim = GetComponentInChildren<Animator>();
         onGround = true;
     }
@@ -125,10 +130,12 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Stick"))
         {
             // Decrease blood
-            blood -= 10;
-            Debug.Log(string.Format("Player {0} gets hit! Blood: {1}", GetComponent<PlayerInput>().playerIndex, blood));
+            int currentHealth = health.GetHealth() - 10;
+            health.SetHealth(currentHealth);
+            healthbar.SetActive(true);
+            Invoke("HideHealthBar", 1);
             anim.SetTrigger("Hit_trig");
-            if (blood <= 0)
+            if (currentHealth <= 0)
             {
                 anim.SetBool("Dead_b", true);
                 GetComponent<Collider2D>().enabled = false;
@@ -136,6 +143,11 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(Fade());
             }
         }
+    }
+
+    private void HideHealthBar()
+    {
+        healthbar.SetActive(false);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
